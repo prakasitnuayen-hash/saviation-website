@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { text-decoration: none; }
+    .eyebrow { font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
+    .h1 { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+    .h2 { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.015em; }
+    .body-text { font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.75; }
+    .btn-light { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; color: #111214; background: #ffffff; padding: 16px 34px; border-radius: 999px; }
+    .btn-dark { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; color: #ffffff; background: #111214; padding: 16px 34px; border-radius: 999px; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #cfe2f8;">
+
+  <dc-import name="Header" active-page="Product" hint-size="1440px,84px"></dc-import>
+
+  <!-- HERO -->
+  <div style="position: relative; background: #0a0b0d; padding: 108px 56px; display: flex; align-items: center; gap: 72px; overflow: hidden;">
+    <img src="engine-xray.jpg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(6,7,9,0.94) 30%, rgba(6,7,9,0.55) 75%);"></div>
+    <div style="position: relative; flex: 1; display: flex; flex-direction: column; gap: 24px;">
+      <div class="eyebrow" style="color: #86888d; font-size: 11.5px;">Built By Engineers, For Engineers</div>
+      <h1 class="h1" style="color: #ffffff; font-size: 48px; line-height: 1.12; margin: 0;">Fleet Manager</h1>
+      <p class="body-text" style="color: #b9babd; font-size: 16px; max-width: 480px; margin: 0;">
+        The continuing airworthiness management platform we built to run our own operations at Best Ocean Airpark &mdash; now available to other maintenance organizations.
+      </p>
+      <div>
+        <a href="#" class="btn-light">Contact Us to Learn More</a>
+      </div>
+    </div>
+    <div style="position: relative; flex: 1; background: rgba(17,18,20,0.55); backdrop-filter: blur(2px); border: 1px solid rgba(255,255,255,0.14); border-radius: 4px; padding: 26px;">
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px;">
+        <sc-for list="{{statTiles}}" as="t" hint-placeholder-count="3">
+          <div style="border-top: 1px solid rgba(255,255,255,0.14); padding-top: 12px;">
+            <div style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 22px; color: #ffffff;">{{t.value}}</div>
+            <div class="body-text" style="font-size: 11px; color: #86888d; margin-top: 4px;">{{t.label}}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top: 22px; display: flex; flex-direction: column;">
+        <sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
+          <div style="border-top: 1px solid rgba(255,255,255,0.10); padding: 13px 0; display: flex; justify-content: space-between; align-items: center;">
+            <span class="body-text" style="font-size: 12.5px; color: #dcdde0;">{{r.label}}</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600; color: {{r.color}}; letter-spacing: 0.04em;">{{r.status}}</span>
+          </div>
+        </sc-for>
+        <div style="border-top: 1px solid rgba(255,255,255,0.10);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <div style="max-width: 800px; margin: 0 auto; padding: 128px 56px; text-align: center; display: flex; flex-direction: column; gap: 22px; align-items: center;">
+    <div class="eyebrow" style="color: #86888d; font-size: 11.5px;">Why We Built It</div>
+    <p style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 28px; color: #111214; line-height: 1.45; margin: 0; letter-spacing: -0.01em;">One system, from work order to airworthiness release</p>
+    <p class="body-text" style="font-size: 15px; color: #5c5e62; margin: 0;">
+      As a CAAT-certified AMO, keeping accurate, traceable maintenance records isn't optional &mdash; it's the job. We couldn't find a system built for organizations our size, so our engineering team built one. Fleet Manager now runs our own fleet, and we're opening it to other MRO and continuing airworthiness organizations.
+    </p>
+  </div>
+
+  <!-- FEATURES -->
+  <div style="background: #b8d4f2; padding: 112px 56px;">
+    <div style="max-width: 1160px; margin: 0 auto;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 64px;">
+        <div class="eyebrow" style="color: #86888d; font-size: 11.5px; text-align: center;">What's Inside</div>
+        <h2 class="h2" style="font-size: 32px; color: #111214; margin: 0; text-align: center;">Everything a maintenance organization needs to track</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: rgba(17,18,20,0.10); border-top: 1px solid rgba(17,18,20,0.10); border-left: 1px solid rgba(17,18,20,0.10);">
+        <sc-for list="{{features}}" as="f" hint-placeholder-count="9">
+          <div style="background: #b8d4f2; padding: 32px 28px; display: flex; flex-direction: column; gap: 14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111214" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+            <h3 class="h2" style="font-size: 15.5px; color: #111214; margin: 0;">{{f.title}}</h3>
+            <p class="body-text" style="font-size: 12.5px; color: #5c5e62; margin: 0;">{{f.desc}}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="max-width: 700px; margin: 0 auto; padding: 128px 56px; text-align: center; display: flex; flex-direction: column; gap: 22px; align-items: center;">
+    <h2 class="h2" style="font-size: 28px; color: #111214; margin: 0;">Curious whether Fleet Manager fits your operation?</h2>
+    <p class="body-text" style="font-size: 14.5px; color: #5c5e62; margin: 0;">We're onboarding a small number of organizations directly &mdash; get in touch and we'll walk you through it.</p>
+    <a href="mailto:admin@saviationaero.com" class="btn-dark" style="margin-top: 6px;">Contact Us to Learn More</a>
+  </div>
+
+  <dc-import name="Footer" hint-size="1440px,300px"></dc-import>
+
+</div>
+</x-dc>
+<script data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      statTiles: [
+        { value: '9', label: 'Modules' },
+        { value: '24/7', label: 'Record access' },
+        { value: '1', label: 'Source of truth' },
+      ],
+      rows: [
+        { label: 'HS-AOM · 100hr inspection', status: 'ON TRACK', color: '#8fd19e' },
+        { label: 'PN-BRAKE-01 · stock level', status: 'OK', color: '#8fd19e' },
+        { label: 'License renewal · 2 staff', status: 'DUE SOON', color: '#e8b563' },
+      ],
+      features: [
+        { title: 'Client & Contracts', desc: 'Track aircraft owners and the contracts that define your scope of work.' },
+        { title: 'Aircraft Records', desc: 'Registration, airframe hours, cycles, and status in one place.' },
+        { title: 'Component Traceability', desc: 'Full life-cycle log — installed, removed, overhauled, scrapped.' },
+        { title: 'Work Orders', desc: 'Scheduled and unscheduled maintenance from open to sign-off.' },
+        { title: 'Defect Tracking', desc: 'Log, classify by severity, and track every defect to closure.' },
+        { title: 'Inventory', desc: 'Parts stock levels with low-stock alerts and supplier records.' },
+        { title: 'Personnel & Certification', desc: 'License numbers, type ratings, and expiry tracking.' },
+        { title: 'Maintenance Programme', desc: 'Task intervals by hours, cycles, or calendar — due-status at a glance.' },
+        { title: 'Document Control', desc: 'Manuals, logbooks, and certificates with expiry tracking.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    a { color: #111214; text-decoration: none; }
+  </style>
+</helmet>
+<div style="font-family: 'Inter', sans-serif; background: #cfe2f8; border-bottom: 1px solid rgba(17,18,20,0.10); display: flex; align-items: center; justify-content: space-between; padding: 0 56px; height: 84px; width: 100%;">
+  <a href="#" style="display: flex; align-items: center; gap: 12px;">
+    <span style="font-size: 16px; font-weight: 700; letter-spacing: 0.1em; color: #111214;">SAVIATION</span>
+    <span style="width: 1px; height: 14px; background: rgba(17,18,20,0.18);"></span>
+    <span style="font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; color: #86888d;">CO., LTD.</span>
+  </a>
+
+  <nav style="display: flex; align-items: center; gap: 40px;">
+    <sc-for list="{{navItems}}" as="item" hint-placeholder-count="5">
+      <a href="#" style="font-size: 13.5px; font-weight: {{item.weight}}; color: {{item.color}}; padding-bottom: 22px; border-bottom: 2px solid {{item.underline}};">
+        {{item.label}}
+      </a>
+    </sc-for>
+    <a href="#" style="font-size: 13px; font-weight: 500; color: #ffffff; background: #111214; padding: 11px 24px; border-radius: 999px;">
+      Get in Touch
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"activePage":{"editor":"enum","default":"Home","options":["Home","About","Services","Product","Contact"]}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.activePage ?? 'Home';
+    const labels = ['Home', 'About', 'Services', 'Product', 'Contact'];
+    return {
+      navItems: labels.map((label) => ({
+        label,
+        weight: label === active ? '600' : '500',
+        color: label === active ? '#111214' : '#5c5e62',
+        underline: label === active ? '#111214' : 'transparent',
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>
