@@ -4,8 +4,8 @@
    ========================================================================== */
 
 :root {
-  --blue-bg: #cfe2f8;      /* page / header background */
-  --blue-bg-alt: #b8d4f2;  /* alternating section background */
+  --blue-bg: #ffffff;      /* page / header background (flat white) */
+  --blue-bg-alt: #f4f5f6;  /* alternating section background (flat off-white) */
   --dark: #111214;         /* primary text / dark section bg */
   --darker: #0a0b0d;       /* hero image overlay base */
   --panel: #16181b;        /* photo placeholder background */
@@ -80,6 +80,8 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
 .brand-name { font-size: 16px; font-weight: 700; letter-spacing: 0.1em; color: var(--dark); }
 .brand-sep { width: 1px; height: 14px; background: rgba(17,18,20,0.18); }
 .brand-sub { font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; color: var(--gray-1); }
+.brand-logo { height: 34px; width: auto; display: block; }
+.footer-logo { height: 42px; width: auto; display: block; }
 
 .main-nav { display: flex; align-items: center; gap: 36px; }
 .main-nav a.nav-link {
@@ -206,9 +208,12 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
 .photo-slot .cap { font-size: 11px; font-weight: 500; color: var(--gray-1); padding: 14px; letter-spacing: 0.02em; }
 .photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .doc-slot {
-  background: var(--blue-bg-alt); border: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; text-align: center; padding: 16px;
+  background: var(--white); border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; text-align: center; padding: 12px;
+  transition: opacity 0.15s ease;
 }
+.doc-slot:hover { opacity: 0.8; }
+.doc-slot img { flex: 1 1 auto; min-height: 0; max-width: 100%; object-fit: contain; box-shadow: 0 0 0 1px var(--line); }
 .doc-slot span { font-size: 11.5px; color: #5c5e62; font-weight: 500; }
 
 /* ---------- About page ---------- */
@@ -289,6 +294,27 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
 .story { max-width: 800px; margin: 0 auto; padding: clamp(64px,10vw,128px) var(--pad); text-align: center; display: flex; flex-direction: column; gap: 20px; align-items: center; }
 .story .quote { font-weight: 300; font-size: clamp(22px,3vw,28px); color: var(--dark); line-height: 1.45; margin: 0; letter-spacing: -0.01em; }
 .story p.body-text { font-size: 15px; color: var(--gray-2); margin: 0; }
+
+.product-shots { padding: 0 var(--pad) clamp(64px,10vw,112px); }
+.product-shots .head { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 40px; text-align: center; }
+.product-shots h2 { font-size: clamp(24px,3vw,32px); color: var(--dark); }
+.carousel { position: relative; max-width: 1160px; margin: 0 auto; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--darker); }
+.carousel-track { display: flex; transition: transform 0.4s ease; }
+.carousel-slide { flex: 0 0 100%; min-width: 0; }
+.carousel-slide img { width: 100%; height: auto; display: block; }
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%; border: none;
+  background: rgba(17,18,20,0.55); color: var(--white); font-size: 22px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: background-color 0.15s ease;
+}
+.carousel-btn:hover { background: rgba(17,18,20,0.8); }
+.carousel-btn.prev { left: 16px; }
+.carousel-btn.next { right: 16px; }
+.carousel-dots { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+.carousel-dots button { width: 8px; height: 8px; padding: 0; border-radius: 50%; border: none; background: rgba(255,255,255,0.4); cursor: pointer; }
+.carousel-dots button.active { background: var(--white); }
+.carousel.single .carousel-btn, .carousel.single .carousel-dots { display: none; }
 
 .features-band { background: var(--blue-bg-alt); padding: clamp(64px,10vw,112px) var(--pad); }
 .features-band .head { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 56px; text-align: center; }
