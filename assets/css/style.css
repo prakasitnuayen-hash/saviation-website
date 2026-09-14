@@ -71,7 +71,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad);
-  height: 76px;
+  height: 96px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -80,8 +80,8 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
 .brand-name { font-size: 16px; font-weight: 700; letter-spacing: 0.1em; color: var(--dark); }
 .brand-sep { width: 1px; height: 14px; background: rgba(17,18,20,0.18); }
 .brand-sub { font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; color: var(--gray-1); }
-.brand-logo { height: 48px; width: auto; display: block; }
-.footer-logo { height: 58px; width: auto; display: block; }
+.brand-logo { height: 72px; width: auto; display: block; }
+.footer-logo { height: 84px; width: auto; display: block; }
 
 .main-nav { display: flex; align-items: center; gap: 36px; }
 .main-nav a.nav-link {
@@ -357,7 +357,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
    Responsive
    ========================================================================== */
 @media (max-width: 900px) {
-  .main-nav { position: fixed; inset: 76px 0 auto 0; background: var(--blue-bg); flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--pad) 20px; border-bottom: 1px solid var(--line); transform: translateY(-8px); opacity: 0; pointer-events: none; transition: 0.18s ease; }
+  .main-nav { position: fixed; inset: 96px 0 auto 0; background: var(--blue-bg); flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--pad) 20px; border-bottom: 1px solid var(--line); transform: translateY(-8px); opacity: 0; pointer-events: none; transition: 0.18s ease; }
   .main-nav.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   .main-nav a.nav-link { padding: 14px 0; border-bottom: 1px solid var(--line); }
   .main-nav a.nav-link.active { border-bottom: 1px solid var(--line); }
